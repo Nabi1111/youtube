@@ -1,0 +1,35 @@
+const int switchPin = 3;  
+const int led_Pin1 = 8;
+const int led_pin2 = 7;
+      int switchVal;  
+
+
+
+void setup()
+{
+  // Set up the switch pins to be an input:
+  pinMode(switchPin, INPUT);
+
+  // Set up the LED pins to be an output:
+  pinMode(led_Pin1,OUTPUT); 
+  pinMode(led_pin2, OUTPUT);  
+}
+
+
+void loop()
+{
+  //store the switch value to the switchVal variable
+  switchVal = digitalRead(switchPin);
+
+ //if switchVal is HIGH blink led1Pin
+ if(switchVal == HIGH)
+ {
+   digitalWrite(led_Pin1, HIGH);
+   digitalWrite(led_pin2, LOW);
+ }
+ else
+ {
+   digitalWrite(led_Pin1, LOW);
+   digitalWrite(led_pin2,HIGH);
+ }
+}
