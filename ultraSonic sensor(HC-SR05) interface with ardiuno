@@ -1,0 +1,25 @@
+#define echoPin 2
+#define trigPin 3
+
+long duration;   //take a variable to store the time
+int distance;   //take a variable to store the distance
+void setup(){
+  Serial.begin(9600);       //baudrate
+  pinMode(trigPin,OUTPUT);  //set the trig pin as a output
+  pinMode(echoPin,INPUT);   //set the echo pin as a input
+ }
+void loop(){
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOW);
+  
+ duration=pulseIn(echoPin,HIGH);      //wait for pin to go high, start timming then wait for the pin to go low and stop time
+  distance=(duration*0.034/2);
+  Serial.print("Distance : ");
+  Serial.print(distance);
+  Serial.println(" cm ");
+  delay(1000);
+               
+}
