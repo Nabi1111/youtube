@@ -1,0 +1,88 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+Adafruit_SSD1306 display(-1);
+
+
+void setup()   
+{                
+  // initialize with the I2C addr 0x3C
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  
+  // Clear the buffer.
+//display.clearDisplay();
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Triangle");
+display.drawTriangle(30, 15, 0, 25, 25, 25, WHITE);   //function. The function takes seven parameters viz. 3 X & Y coordinates (x0, y0, x1, y1, x2 & y2) of vertices of triangle and color. (X0,y0) represents top vertex, (x1,y1) represents left vertex and (x2,y2) represents right vertex.
+display.display();
+delay(2000);
+//
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Filled Triangle");
+display.fillTriangle(30, 15, 0, 25, 25, 25, WHITE);  //function. The function takes seven parameters viz. 3 X & Y coordinates (x0, y0, x1, y1, x2 & y2) of vertices of triangle and color. (X0,y0) represents top vertex, (x1,y1) represents left vertex and (x2,y2) represents right vertex.
+display.display();
+delay(2000);
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Circle");
+display.drawCircle(10, 20, 10, WHITE);    //function. The function takes four parameters viz. X coordinate of center, Y coordinate of center, radius and color.
+display.display();
+delay(2000);
+
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Filled Circle");
+display.fillCircle(10, 20, 10, WHITE);   //function. The function takes four parameters viz. X coordinate of center, Y coordinate of center, radius and color.
+display.display();
+delay(2000);
+
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Round Rectangle");
+display.drawRoundRect(0, 10, 50, 20, 8, WHITE);    //function. This function takes same parameters as drawRect() function except one additional parameter – Radius of corner rounding. 
+display.display();
+delay(2000);
+
+display.clearDisplay();  
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Filled Round Rectangl");
+display.fillRoundRect(0, 10, 50, 20, 8, WHITE);    //function. This function takes same parameters as drawRect() function except one additional parameter – Radius of corner rounding. 
+display.display();
+delay(2000);
+
+display.clearDisplay();
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Rectangle");
+display.drawRect(0, 12, 60, 15, WHITE);    // The function takes five parameters viz. X coordinate, Y coordinate, Width, Height and color.
+display.display();
+delay(2000);
+
+display.clearDisplay();  
+display.setTextSize(1);
+display.setTextColor(WHITE);
+display.setCursor(0,0);
+display.println("Filled Rectangle");
+display.fillRect(0, 12, 60, 15, WHITE);    // The function takes five parameters viz. X coordinate, Y coordinate, Width, Height and color.
+display.display();
+delay(2000);
+}
+
+void loop() {
+  }
