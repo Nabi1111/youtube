@@ -1,0 +1,36 @@
+int PIR = 2;
+int value = 0;
+int led_pin = 13;
+bool PIR_STATUS = LOW;
+
+void setup() {
+  pinMode(led_pin, OUTPUT);
+  pinMode(PIR, INPUT);
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  value = digitalRead(PIR);
+  if (value == HIGH)
+  {
+    digitalWrite(led_pin, HIGH);
+
+    if (PIR_STATUS == LOW)
+    {
+      Serial.println("Motion Detected");
+      PIR_STATUS = HIGH;
+    }
+  }
+  else
+  {
+    digitalWrite(led_pin, LOW);
+
+    if (PIR_STATUS == HIGH)
+    {
+      Serial.println("Motion not Detected");
+      PIR_STATUS = LOW;
+    }
+  }
+
+}
